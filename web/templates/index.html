@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SmartForexBot</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  </head>
+  <body>
+    <div class="layout">
+      <header>
+        <h1>SmartForexBot</h1>
+        <nav class="tabs">
+          <button class="tab-btn active" data-tab="chat" type="button">Chat</button>
+          <button class="tab-btn" data-tab="overview" type="button">Overview</button>
+        </nav>
+        <div class="controls">
+          <label for="featureMode" style="margin-right:6px;">Features</label>
+          <select id="featureMode">
+            <option value="fib" selected>Fib</option>
+            <option value="fib_ind">Fib + Indicators</option>
+            <option value="fib_ind_norm">Normalized</option>
+          </select>
+          <button id="btnRefresh" type="button">Refresh</button>
+        </div>
+      </header>
+
+      <main>
+        <div class="view view-chat active" data-view="chat">
+          <section class="chat">
+            <div id="chatlog"></div>
+            <div class="composer">
+              <input id="msg" placeholder="Ask about a pair (e.g., 'EURUSD') or say 'best trade now'…" />
+              <button id="send" type="button">Send</button>
+            </div>
+          </section>
+
+          <section class="chart">
+            <div id="chart"></div>
+            <div id="summary"></div>
+            <div id="recos" class="recos"></div>
+          </section>
+        </div>
+
+        <div class="view view-overview" data-view="overview">
+          <div class="overview-layout">
+            <aside id="overviewGrid" class="overview-grid">
+              <div class="loading">Load the overview to see active retracement zones.</div>
+            </aside>
+            <section class="overview-detail">
+              <div id="overviewDetailHeader" class="detail-header">Select a pair to see its retracement status.</div>
+              <div id="overviewChart" class="overview-chart"></div>
+              <div id="overviewDetailMeta" class="detail-meta"></div>
+            </section>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
