@@ -136,7 +136,7 @@ def simulate_naive(events: pd.DataFrame) -> Tuple[pd.DataFrame, Dict[str, float]
             wins += 1
             outcome = "win"
         else:
-            balance -= stake
+            balance -= stake 
             losses += 1
             outcome = "loss"
         recs.append({
